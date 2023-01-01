@@ -6,4 +6,4 @@ const BlogDetail = () => {
   )
 }
 
-export default BlogDetail
+export default BlogDetail;
