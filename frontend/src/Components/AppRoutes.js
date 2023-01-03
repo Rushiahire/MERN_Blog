@@ -5,14 +5,16 @@ import Blogs from './Blogs';
 import Home from './Home';
 import AddBlog from './AddBlog';
 import UserBlogs from './UserBlogs';
-import Auth from './Auth';
+import SignUp from './SignUp';
+import Login from './Login';
 
 const AppRoutes = () => {
   return (
     <div>
         <Routes>
             <Route path="/" element={<Home/>} />
-            <Route path="/auth" element={<Auth/>} />
+            <Route path="/login" element={<Login/>} />
+            <Route path="/signup" element={<SignUp/>} />
             <Route path="/blogs" element={<Blogs/>} />
             <Route path="/my-blogs" element={<UserBlogs/>} />
             <Route path="/my-blogs/:id" element={<BlogDetail/>} />

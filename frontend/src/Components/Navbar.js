@@ -1,7 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const Navbar = () => {
+
+
+  const isLoggedIn = useSelector((state)=>state.isLoggedIn)
+  console.log("isloggedIn",isLoggedIn)
+  
   return (
     <div>
       <nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom">
@@ -26,12 +32,12 @@ const Navbar = () => {
 
             </ul>
             <form class="d-flex" role="search">
-              <Link to="/auth">
+              <Link to="/login">
                 <button className='btn btn-primary text-uppercase mx-1 rounded-4'>
                   login
                 </button>
               </Link>
-              <Link to="/auth">
+              <Link to="/signup">
                 <button className='btn btn-primary text-uppercase mx-2 rounded-4'>Signup</button>
               </Link>
               <Link to="/auth">
