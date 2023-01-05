@@ -1,13 +1,18 @@
 import React,{useEffect} from 'react'
-import UserBlogsApi from '../api/userBlogs'
+import getUserBlogs from '../api/userBlogs';
+import { getUserBlogApi } from '../store/slices/userBlogs';
 
 const UserBlogs = () => {
-  useEffect((id)=>{
-    UserBlogsApi("63b011ef6088394ecc1fa3f8")
+  const id = localStorage.getItem("userid");
+  
+  useEffect(()=>{
+    console.log("id",id)
+    getUserBlogApi(id)
   },[])
   return (
     <div>
-      <h3>UserBlogs</h3>
+     <h3 className='text-uppercase'>my blogs</h3>
+
     </div>
   )
 }

@@ -15,7 +15,6 @@ const Blogs = () => {
 
   return (
     <>
-      
       <div className="container border mt-5 ">
         <div className="row">
           {allBlogs.map((blog, index) => (

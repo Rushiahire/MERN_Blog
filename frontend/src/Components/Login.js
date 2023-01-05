@@ -36,6 +36,7 @@ const Login = () => {
         .then((res)=>{
           // console.log(res.data)
           dispatch(authActions.login())
+          localStorage.setItem("userid",res.data.user._id)
           if(res.data.message === "Login successfully") {
             navigate("/blogs")
           }

@@ -12,6 +12,7 @@ const SignUp = () => {
           axios.post("http://localhost:8000/api/user/signup",values)
           .then((res)=>{
             console.log(res.data)
+            localStorage.setItem("userid",res.data.user._id)
           })
         }}
       >
