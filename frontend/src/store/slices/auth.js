@@ -1,7 +1,7 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice ,configureStore } from "@reduxjs/toolkit";
 
 
-export const AuthSlice = createSlice({
+const AuthSlice = createSlice({
     name:"auth",
     initialState : { isLoggedIn: false },
     reducers: {
@@ -17,6 +17,9 @@ export const AuthSlice = createSlice({
 
 
 
+export const authActions = AuthSlice.actions;
+export const auth =  AuthSlice.reducer;
 
-const { login , logout } = AuthSlice.actions;
-export const authReducers = AuthSlice.reducer;
+// export const Store = configureStore({
+//     reducer: AuthSlice.reducer,
+//   });

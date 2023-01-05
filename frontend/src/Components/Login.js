@@ -1,9 +1,19 @@
 // Render Prop
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { authActions } from "../store/slices/auth";
+import { useDispatch } from "react-redux";
 
-const login = () => (
-  <div>
+
+const Login = () => {
+
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  return(
+    <div>
     <Formik
       initialValues={{ email: "", password: "" }}
       //   validate={
@@ -21,6 +31,17 @@ const login = () => (
       // }
       onSubmit={(values, { setSubmitting }) => {
         console.log("login form values", values);
+        axios.post("http://localhost:8000/api/user/login",values)
+       
+        .then((res)=>{
+          // console.log(res.data)
+          dispatch(authActions.login())
+          if(res.data.message === "Login successfully") {
+            navigate("/blogs")
+          }
+        })
+
+       
       }}
     >
       {({ isSubmitting }) => (
@@ -45,7 +66,7 @@ const login = () => (
               Password
             </label>
             <Field
-              type="string"
+              type="password"
               className="form-control"
               id="password"
               name="password"
@@ -53,7 +74,7 @@ const login = () => (
           </div>
 
           <div className="text-center">
-            <button type="submit" className="btn btn-primary">
+            <button type="submit" className="btn btn-success">
               Login
             </button>
           </div>
@@ -61,6 +82,9 @@ const login = () => (
       )}
     </Formik>
   </div>
-);
+  )
+}
+ 
 
-export default login;
+
+export default Login;
