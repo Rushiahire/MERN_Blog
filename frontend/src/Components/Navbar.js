@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { authActions } from "../store/slices/auth";
+import authActions from "../store/slices/login";
 
 
 const Navbar = () => {
@@ -13,7 +13,7 @@ const Navbar = () => {
 
   const Logout = () => {
     console.log("logout")
-    dispatch(authActions.logout())
+    dispatch(authActions.Logout())
   }
 
   return (

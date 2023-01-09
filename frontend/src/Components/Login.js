@@ -1,9 +1,8 @@
 // Render Prop
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { authActions } from "../store/slices/auth";
+import { LoginUserApi } from "../store/slices/login";
 import { useDispatch } from "react-redux";
 
 
@@ -31,18 +30,9 @@ const Login = () => {
       // }
       onSubmit={(values, { setSubmitting }) => {
         console.log("login form values", values);
-        axios.post("http://localhost:8000/api/user/login",values)
-       
-        .then((res)=>{
-          // console.log(res.data)
-          dispatch(authActions.login())
-          localStorage.setItem("userid",res.data.user._id)
-          if(res.data.message === "Login successfully") {
-            navigate("/blogs")
-          }
-        })
-
-       
+        // axios.post("http://localhost:8000/api/user/login",values)
+        dispatch(LoginUserApi(values))
+        
       }}
     >
       {({ isSubmitting }) => (

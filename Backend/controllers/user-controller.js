@@ -4,6 +4,7 @@ import bcrypt from "bcryptjs";
 
 
 export const getAllUsers = async (req, res, next) => {
+  
   let users;
 
   try {
@@ -54,7 +55,7 @@ export const signup = async (req, res, next) => {
 
 
 export const login = async ( req, res, next) => {
-    
+ 
     const { email , password } = req.body;
 
     let existingUser;
@@ -73,5 +74,8 @@ export const login = async ( req, res, next) => {
   if(!isPasswordCorrect) {
     return res.status(400).json({message : "Email or password is incorrect"})
   }
-  return res.status(200).json({message : "Login successfully" ,user: existingUser })
+  return res.status(200).json({message : "Login successfully"})
+  
+  
 }
+
